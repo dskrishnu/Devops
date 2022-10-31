@@ -1,0 +1,55 @@
+
+trigger:
+- none
+
+stages:
+- stage: "BuildStage"
+  jobs:
+  - job: "BuildJob"
+    pool:
+      vmImage: ubuntu-latest
+
+    variables:
+      buildConfiguration: 'Release'
+      ProjectName: '**/*.csproj'
+
+    steps:
+
+    - template: templates/Build.yml
+      parameters:
+        buildConfiguration: 'Release'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'drop'
+        publishLocation: 'pipeline'
+
+- stage: "DeployToVM"
+  dependsOn: "BuildStage" 
+  jobs:
+  - deployment: 
+    environment:
+      name: WebEnv
+      resourceType: VirtualMachine
+      tags: web
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: IISWebAppManagementOnMachineGroup@0
+            inputs:
+              EnableIIS: true
+              IISDeploymentType: 'IISWebsite'
+              ActionIISWebsite: 'CreateOrUpdateWebsite'
+              WebsiteName: 'HelloWorldApp'
+              WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot'
+              WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
+              AddBinding: true
+              Bindings: 'http/All Unassigned:8080:'
+          - task: IISWebAppDeploymentOnMachineGroup@0
+            inputs:
+              WebSiteName: 'HellloWorld'
+              Package: '$(pipeline.workspace)\**\*.zip'
+              TakeAppOfflineFlag: true

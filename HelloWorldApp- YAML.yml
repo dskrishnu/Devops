@@ -14,24 +14,33 @@ variables:
   ProjectName: '**/*.csproj'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  inputs:
-    command: 'restore'
-    projects: '$(ProjectName)'
-    feedsToUse: 'select'
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    command: 'build'
-    projects: '$(ProjectName)'
-    arguments: '--configuration $(buildConfiguration)'
-- task: DotNetCoreCLI@2
-  displayName: Publish  
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+# - task: DotNetCoreCLI@2
+#   displayName: Restore
+#   inputs:
+#     command: 'restore'
+#     projects: '$(ProjectName)'
+#     feedsToUse: 'select'
+
+# - task: DotNetCoreCLI@2
+#   displayName: Build
+#   inputs:
+#     command: 'build'
+#     projects: '$(ProjectName)'
+#     arguments: '--configuration $(buildConfiguration)'
+# - task: DotNetCoreCLI@2
+#   displayName: Publish  
+#   inputs:
+#     command: 'publish'
+#     publishWebProjects: true
+#     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+
+- template: templates/Build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template: templates/Build.yml
+  parameters:
+    buildConfiguration: 'Release'
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:

@@ -50,6 +50,6 @@ stages:
               Bindings: 'http/All Unassigned:8080:'
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
-              WebSiteName: 'HellloWorld'
+              WebSiteName: 'HelloWorldApp'
               Package: '$(pipeline.workspace)\**\*.zip'
               TakeAppOfflineFlag: true

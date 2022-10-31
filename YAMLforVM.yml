@@ -53,6 +53,6 @@ stages:
 
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
-              WebSiteName: 'HelloWorldApp'
+              WebSiteName: 'default web site'
               Package: '$(pipeline.workspace)\**\*.zip'
               TakeAppOfflineFlag: true

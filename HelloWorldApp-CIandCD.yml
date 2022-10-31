@@ -20,3 +20,17 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'HelloWorldApp-ServiceConnection'
+    appType: 'webApp'
+    WebAppName: 'hwa-dev'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'HelloWorldApp-ServiceConnection'
+    appType: 'webApp'
+    WebAppName: 'hwa-qa'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'

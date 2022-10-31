@@ -1,7 +1,7 @@
 
 trigger:
 - master
-- test
+- development
 
 stages:
 - stage: "BuildStage"
@@ -27,7 +27,7 @@ stages:
 
 - stage: "DeployToDev"
   dependsOn: "BuildStage" 
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/test')
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/development')
   jobs:
   - deployment: 
     environment: Development

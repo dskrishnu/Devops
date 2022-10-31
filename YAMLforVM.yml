@@ -29,7 +29,7 @@ stages:
   jobs:
   - deployment: 
     environment:
-      name: WebEnv
+      name: HWA-vm
       resourceType: VirtualMachine
       tags: web
     pool:

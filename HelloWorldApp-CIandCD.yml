@@ -1,6 +1,6 @@
 
 trigger:
-- master
+- none
 
 stages:
 - stage: "BuildStage"
@@ -27,61 +27,73 @@ stages:
 - stage: "DeployToDev"
   dependsOn: "BuildStage" 
   jobs:
-  - job: 
+  - deployment: 
+    environment: Development
     pool:
       vmImage: ubuntu-latest
-    steps:
-      - download: current
-        artifact: drop
-      - task: AzureRmWebAppDeployment@4
-        inputs:
-          ConnectionType: 'AzureRM'
-          azureSubscription: 'HelloWorldApp-ServiceConnection'
-          appType: 'webApp'
-          WebAppName: 'hwa-dev'
-          packageForLinux: '$(pipeline.workspace)/**/*.zip'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                appType: 'webApp'
+                WebAppName: 'hwa-dev'
+                packageForLinux: '$(pipeline.workspace)/**/*.zip'
 
 - stage: "DeployToQA"
   dependsOn: "DeployToDev" 
   jobs:
-  - job: 
+  - deployment: 
+    environment: QA
     pool:
       vmImage: ubuntu-latest
-    steps:
-      - download: current
-        artifact: drop
-      - task: AzureRmWebAppDeployment@4
-        inputs:
-          ConnectionType: 'AzureRM'
-          azureSubscription: 'HelloWorldApp-ServiceConnection'
-          appType: 'webApp'
-          WebAppName: 'hwa-qa'
-          packageForLinux: '$(pipeline.workspace)/**/*.zip'
+    strategy:
+      runOnce:
+        deploy: 
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'HelloWorldApp-ServiceConnection'
+              appType: 'webApp'
+              WebAppName: 'hwa-qa'
+              packageForLinux: '$(pipeline.workspace)/**/*.zip'
           
 - stage: "DeployToProd"
   dependsOn: "DeployToQA" 
   jobs:
-  - job: 
+  - deployment: 
+    environment: Production
     pool:
       vmImage: ubuntu-latest
-    steps:
-      - download: current
-        artifact: drop
-      - task: AzureRmWebAppDeployment@4
-        inputs:
-          ConnectionType: 'AzureRM'
-          azureSubscription: 'HelloWorldApp-ServiceConnection'
-          appType: 'webApp'
-          WebAppName: 'hwa-prod'
-          deployToSlotOrASE: true
-          ResourceGroupName: 'dskrishnu-rg'
-          SlotName: 'staging'
-          packageForLinux: '$(pipeline.workspace)/**/*.zip'
-      - task: AzureAppServiceManage@0
-        inputs:
-          azureSubscription: 'HelloWorldApp-ServiceConnection'
-          Action: 'Swap Slots'
-          WebAppName: 'hwa-prod'
-          ResourceGroupName: 'dskrishnu-rg'
-          SourceSlot: 'staging'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                appType: 'webApp'
+                WebAppName: 'hwa-prod'
+                deployToSlotOrASE: true
+                ResourceGroupName: 'dskrishnu-rg'
+                SlotName: 'staging'
+                packageForLinux: '$(pipeline.workspace)/**/*.zip'
+            - task: AzureAppServiceManage@0
+              inputs:
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                Action: 'Swap Slots'
+                WebAppName: 'hwa-prod'
+                ResourceGroupName: 'dskrishnu-rg'
+                SourceSlot: 'staging'
 

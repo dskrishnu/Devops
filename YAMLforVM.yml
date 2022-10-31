@@ -43,11 +43,14 @@ stages:
               EnableIIS: true
               IISDeploymentType: 'IISWebsite'
               ActionIISWebsite: 'CreateOrUpdateWebsite'
-              WebsiteName: 'HelloWorldApp'
+              WebsiteName: 'default web site'
               WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot'
               WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
               AddBinding: true
-              Bindings: 'http/All Unassigned:8080:'
+              Protocol: http
+              IPAddress: 'All Unassigned'
+              port: 80
+
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
               WebSiteName: 'HelloWorldApp'

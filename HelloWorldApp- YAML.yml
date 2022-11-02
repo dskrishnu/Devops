@@ -34,9 +34,9 @@ steps:
 #     publishWebProjects: true
 #     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
 
-- template: templates/Build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+# - template: templates/Build.yml
+#   parameters:
+#     buildConfiguration: 'Debug'
 
 - template: templates/Build.yml
   parameters:

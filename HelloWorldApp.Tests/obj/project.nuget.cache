@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SyPI4ESaWv+gO8qM+Wp9+eVEjH7ftJQF/22PPE6qapEUosa0pDl/N3a73BFPM8OeB9QF23c35zfX6Z2G1o4j9g==",
+  "dgSpecHash": "a6JndE8Wk4BmbNWfMc1cryUW+/s15Z0V+WLTHeHxtcq9aHw2iAd72JFuq37iEvM7myAGR6oi8Hc/BTlO0sGeiw==",
   "success": true,
-  "projectFilePath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
+  "projectFilePath": "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dskri\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

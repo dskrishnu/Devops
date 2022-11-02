@@ -24,3 +24,29 @@ D:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Web\obj\Debug\net6.0\refint\Hell
 D:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.pdb
 D:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.genruntimeconfig.cache
 D:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Web\obj\Debug\net6.0\ref\HelloWorldApp.Web.dll
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\appsettings.Development.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\appsettings.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.staticwebassets.runtime.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.exe
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.deps.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.runtimeconfig.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.dll
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\bin\Debug\net6.0\HelloWorldApp.Web.pdb
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.csproj.AssemblyReference.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.AssemblyInfoInputs.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.AssemblyInfo.cs
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.csproj.CoreCompileInputs.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.RazorAssemblyInfo.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.RazorAssemblyInfo.cs
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\staticwebassets.build.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\staticwebassets.development.json
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\scopedcss\bundle\HelloWorldApp.Web.styles.css
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\scopedcss\projectbundle\HelloWorldApp.Web.bundle.scp.css
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.dll
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\refint\HelloWorldApp.Web.dll
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.pdb
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\HelloWorldApp.Web.genruntimeconfig.cache
+D:\Tutorials\Devops\HelloWorldApp - Copy\HelloWorldApp.Web\obj\Debug\net6.0\ref\HelloWorldApp.Web.dll

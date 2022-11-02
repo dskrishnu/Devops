@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {}
+    "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {}
   },
   "projects": {
-    "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
+    "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+        "projectUniqueName": "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
         "projectName": "HelloWorldApp.Web",
-        "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+        "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
         "packagesPath": "C:\\Users\\dskri\\.nuget\\packages\\",
-        "outputPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\obj\\",
+        "outputPath": "D:\\Tutorials\\Devops\\HelloWorldApp - Copy\\HelloWorldApp.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dskri\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -17,7 +17,6 @@ namespace HelloWorldApp.Web.Tests
             MathOperations bm = new MathOperations();
             double res = bm.Add(10, 10);
             Assert.AreEqual(res, 20);
-
         }
 
         [TestMethod()]
@@ -34,7 +33,6 @@ namespace HelloWorldApp.Web.Tests
             MathOperations bm = new MathOperations();
             double res = bm.Divide(10, 5);
             Assert.AreEqual(res, 2);
-
         }
 
         [TestMethod()]

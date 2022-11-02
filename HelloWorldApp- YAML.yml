@@ -41,6 +41,12 @@ steps:
 - template: templates/Build.yml
   parameters:
     buildConfiguration: 'Release'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*Test.csproj'
+    arguments: '--configuration $(buildConfiguration)'
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:

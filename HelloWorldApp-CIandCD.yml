@@ -1,0 +1,102 @@
+
+trigger:
+- master
+- development
+
+stages:
+- stage: "BuildStage"
+  jobs:
+  - job: "BuildJob"
+    pool:
+      vmImage: ubuntu-latest
+
+    variables:
+      buildConfiguration: 'Release'
+      ProjectName: '**/*.csproj'
+
+    steps:
+
+    - template: templates/Build.yml
+      parameters:
+        buildConfiguration: 'Release'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'drop'
+        publishLocation: 'pipeline'
+
+- stage: "DeployToDev"
+  dependsOn: "BuildStage" 
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/development')
+  jobs:
+  - deployment: 
+    environment: Development
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                appType: 'webApp'
+                WebAppName: 'hwa-dev'
+                packageForLinux: '$(pipeline.workspace)/**/*.zip'
+
+- stage: "DeployToQA"
+  dependsOn: "DeployToDev" 
+  jobs:
+  - deployment: 
+    environment: QA
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy: 
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'HelloWorldApp-ServiceConnection'
+              appType: 'webApp'
+              WebAppName: 'hwa-qa'
+              packageForLinux: '$(pipeline.workspace)/**/*.zip'
+          
+- stage: "DeployToProd"
+  dependsOn: "BuildStage" 
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+  jobs:
+  - deployment: 
+    environment: Production
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                appType: 'webApp'
+                WebAppName: 'hwa-prod'
+                deployToSlotOrASE: true
+                ResourceGroupName: 'dskrishnu-rg'
+                SlotName: 'staging'
+                packageForLinux: '$(pipeline.workspace)/**/*.zip'
+            - task: AzureAppServiceManage@0
+              inputs:
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                Action: 'Swap Slots'
+                WebAppName: 'hwa-prod'
+                ResourceGroupName: 'dskrishnu-rg'
+                SourceSlot: 'staging'
+

@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  ProjectName: '**/*.csproj'
+  ProjectName: '**/*web.csproj'
 
 steps:
 # - task: DotNetCoreCLI@2

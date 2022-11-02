@@ -7,7 +7,7 @@ using NUnit.Framework;
 using HelloWorldApp;
 using HelloWorldApp.Web;
 
-namespace HelloWorldApp.Web.Tests
+namespace HelloWorldApp.Web.Test
 {
     public class MathOperationsTests
         {

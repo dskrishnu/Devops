@@ -33,7 +33,7 @@ steps:
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
     command: 'test'
-    arguments: '--no-build --configuration $(buildConfiguration) /p:threshold=80 /p:thresholdType=line /p:thresholdStat=total /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./TestResults/Coverage/'
+    arguments: '--no-build --configuration $(buildConfiguration) /p:threshold=10 /p:thresholdType=line /p:thresholdStat=total /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./TestResults/Coverage/'
     publishTestResults: true
     projects: '**/*Tests.csproj'
 

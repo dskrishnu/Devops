@@ -62,7 +62,23 @@ stages:
           publishLocation: 'Container'
 
 - stage: "DeployToAppService"
+  dependsOn: "BuildStage"
   jobs:
-  - job: "BuildJOb"
+  - job: "DeployJOb"
     pool:
        vmImage: windows-latest
+    steps:
+      - task: AzureRmWebAppDeployment@4
+        displayName: DeployToAppService
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'HelloWorldApp-ServiceConnection'
+          appType: 'webApp'
+          WebAppName: 'HelloWorldApp-Test'
+          packageForLinux: '$(pipeline.workspace)/**/*.zip'
+      
+      - task: DotNetCoreCLI@2
+        displayName: UI Test 
+        inputs:
+          command: 'test'
+          arguments: '$(pipeline.workspace)\**\HelloWorldApp.UITests.dll'

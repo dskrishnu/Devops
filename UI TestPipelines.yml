@@ -14,7 +14,7 @@ stages:
        vmImage: windows-latest
 
     variables:
-        buildConfiguration: 'Debug'
+        buildConfiguration: 'Release'
         ProjectName: '**/*.csproj'
 
     steps:

@@ -6,6 +6,10 @@
 trigger:
 - none
 
+stages:
+- stage:
+  -jobs:
+    job:
 pool:
   vmImage: windows-latest
 
@@ -56,11 +60,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'HelloWorldApp-ServiceConnection'
-    appType: 'webApp'
-    WebAppName: 'HelloWorldApp-Test'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

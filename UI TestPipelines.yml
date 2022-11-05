@@ -14,7 +14,7 @@ stages:
        vmImage: windows-latest
 
     variables:
-        buildConfiguration: 'Release'
+        buildConfiguration: 'Debug'
         ProjectName: '**/*.csproj'
 
     steps:
@@ -86,4 +86,4 @@ stages:
         displayName: UI Test 
         inputs:
           command: 'test'
-          arguments: '$(pipeline.workspace)\**\$(BuildConfiguration)\**\HelloWorldApp.UITests.dll'
+          arguments: '$(pipeline.workspace)\**\HelloWorldApp.UITests.dll'

@@ -84,4 +84,4 @@ stages:
         displayName: UI Test 
         inputs:
           command: 'test'
-          arguments: '$(pipeline.workspace)\**\HelloWorldApp.UITests.dll'
+          arguments: '$(pipeline.workspace)\**\drop\**\HelloWorldApp.UITests.dll'

@@ -6,57 +6,57 @@
 trigger:
 - none
 
-stages:
+stages: "BuildStage"
 - stage:
   -jobs:
-    job:
-pool:
-  vmImage: windows-latest
+    job: "BuildJOb"
+      pool:
+        vmImage: windows-latest
 
-variables:
-  buildConfiguration: 'Release'
-  ProjectName: '**/*.csproj'
+      variables:
+        buildConfiguration: 'Release'
+        ProjectName: '**/*.csproj'
 
-steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  inputs:
-    command: 'restore'
-    projects: '$(ProjectName)'
-    feedsToUse: 'select'
+      steps:
+      - task: DotNetCoreCLI@2
+        displayName: Restore
+        inputs:
+          command: 'restore'
+          projects: '$(ProjectName)'
+          feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    command: 'build'
-    projects: '$(ProjectName)'
-    arguments: '--configuration $(buildConfiguration)'
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: 'build'
+          projects: '$(ProjectName)'
+          arguments: '--configuration $(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: Publish  
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
- 
-- task: DotNetCoreCLI@2
-  displayName: Publish UI Test Project
-  inputs:
-    command: publish
-    publishWebProjects: false
-    projects: '**/HelloWorldApp.UITests.csproj'
-    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
-    zipAfterPublish: false
+      - task: DotNetCoreCLI@2
+        displayName: Publish  
+        inputs:
+          command: 'publish'
+          publishWebProjects: true
+          arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+      
+      - task: DotNetCoreCLI@2
+        displayName: Publish UI Test Project
+        inputs:
+          command: publish
+          publishWebProjects: false
+          projects: '**/HelloWorldApp.UITests.csproj'
+          arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+          zipAfterPublish: false
 
-- task: CopyFiles@2
-  displayName: Copy files to output Directory
-  inputs:
-    SourceFolder: 'HelloWorldApp.UITests\bin\$(BuildConfiguration)\net6.0'
-    Contents: '*drive*'
-    TargetFolder: '$(build.artifactstagingdirectory)/HelloWorldApp.UITests'
-- task: PublishBuildArtifacts@1
-  displayName: Publish Artifact
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+      - task: CopyFiles@2
+        displayName: Copy files to output Directory
+        inputs:
+          SourceFolder: 'HelloWorldApp.UITests\bin\$(BuildConfiguration)\net6.0'
+          Contents: '*drive*'
+          TargetFolder: '$(build.artifactstagingdirectory)/HelloWorldApp.UITests'
+      - task: PublishBuildArtifacts@1
+        displayName: Publish Artifact
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'

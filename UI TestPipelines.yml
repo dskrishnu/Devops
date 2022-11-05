@@ -6,18 +6,18 @@
 trigger:
 - none
 
-stages: "BuildStage"
-- stage:
+stages: 
+- stage: "BuildStage"
   -jobs:
     job: "BuildJOb"
-      pool:
-        vmImage: windows-latest
+    pool:
+     vmImage: windows-latest
 
-      variables:
+    variables:
         buildConfiguration: 'Release'
         ProjectName: '**/*.csproj'
 
-      steps:
+    steps:
       - task: DotNetCoreCLI@2
         displayName: Restore
         inputs:

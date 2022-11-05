@@ -5,7 +5,7 @@ using OpenQA.Selenium.Edge;
 using System;
 using System.Threading;
 [TestFixture("Chrome")]
-//[TestFixture("Edge")]
+[TestFixture("Edge")]
 //[TestFixture("Firefox")]
 public class IndexPageTest
 {
@@ -25,9 +25,9 @@ public class IndexPageTest
  case "Chrome":
  driver = new ChromeDriver(cwd);
  break;
- //case "Edge":
- //driver = new EdgeDriver(cwd);
- //break;
+ case "Edge":
+ driver = new EdgeDriver(cwd);
+ break;
  default:
  throw new ArgumentException($"'{browser}': Unknown browser");
  }
@@ -54,7 +54,7 @@ public class IndexPageTest
  return;
  }
  //driver.Manage().Window.Maximize();
- driver.Url = "https://localhost:7178";// Environment.GetEnvironmentVariable("SITE_URL");
+ driver.Url = Environment.GetEnvironmentVariable("SITE_URL");
  IWebElement n1 = driver.FindElement(By.Name("N1"));
  IWebElement n2 = driver.FindElement(By.Name("N2"));
 n1.Clear();

@@ -35,7 +35,21 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
  
-    
+- task: DotNetCoreCLI@2
+  displayName: dotnet publish UI Test Project
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '**/HelloWorldApp.UITests.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: false
+
+- task: CopyFiles@2
+  displayName: Copy files to output Directory
+  inputs:
+    SourceFolder: 'HelloWorldApp.UITests\bin\$(BuildConfiguration)\net6.0'
+    Contents: '*drive*'
+    TargetFolder: '$(build.artifactstagingdirectory)/HelloWorldApp.UITests'
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:

@@ -67,7 +67,9 @@ stages:
   - job: "DeployJOb"
     pool:
        vmImage: windows-latest
-
+    variables:
+      buildConfiguration: 'Release'
+      ProjectName: '**/*.csproj'   
     steps:
       - download: current
         artifact: drop
@@ -84,4 +86,4 @@ stages:
         displayName: UI Test 
         inputs:
           command: 'test'
-          arguments: '$(pipeline.workspace)\**\HelloWorldApp.UITests.dll'
+          arguments: '$(pipeline.workspace)\**$(BuildConfiguration)\**\HelloWorldApp.UITests.dll'

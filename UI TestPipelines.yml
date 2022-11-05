@@ -8,10 +8,10 @@ trigger:
 
 stages: 
 - stage: "BuildStage"
-  -jobs:
-    job: "BuildJOb"
+  jobs:
+  - job: "BuildJOb"
     pool:
-     vmImage: windows-latest
+       vmImage: windows-latest
 
     variables:
         buildConfiguration: 'Release'
@@ -60,3 +60,9 @@ stages:
           PathtoPublish: '$(Build.ArtifactStagingDirectory)'
           ArtifactName: 'drop'
           publishLocation: 'Container'
+
+- stage: "DeployToAppService"
+  jobs:
+  - job: "BuildJOb"
+    pool:
+       vmImage: windows-latest

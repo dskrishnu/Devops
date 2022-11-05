@@ -67,6 +67,9 @@ stages:
   - job: "DeployJOb"
     pool:
        vmImage: windows-latest
+    variables:
+      buildConfiguration: 'Release'
+      ProjectName: '**/*.csproj'   
     steps:
       - download: current
         artifact: drop

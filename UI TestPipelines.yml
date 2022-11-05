@@ -36,7 +36,7 @@ steps:
     arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
  
 - task: DotNetCoreCLI@2
-  displayName: dotnet publish UI Test Project
+  displayName: Publish UI Test Project
   inputs:
     command: publish
     publishWebProjects: false
@@ -56,3 +56,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'HelloWorldApp-ServiceConnection'
+    appType: 'webApp'
+    WebAppName: 'HelloWorldApp-Test'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

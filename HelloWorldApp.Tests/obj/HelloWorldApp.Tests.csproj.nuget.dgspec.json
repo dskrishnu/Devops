@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj": {}
+    "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj": {
+    "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
+        "projectUniqueName": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
         "projectName": "HelloWorldApp.Tests",
-        "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
+        "projectPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
         "packagesPath": "C:\\Users\\dskri\\.nuget\\packages\\",
-        "outputPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\obj\\",
+        "outputPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dskri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
-                "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj"
+              "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
+                "projectPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj"
               }
             }
           }
@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.CodeCoverage.IO": {
+              "target": "Package",
+              "version": "[17.4.4, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.3.2, )"
@@ -62,7 +66,17 @@
               "target": "Package",
               "version": "[4.3.0, )"
             },
+            "ReportGenerator.Core": {
+              "target": "Package",
+              "version": "[5.1.10, )"
+            },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "coverlet.msbuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
@@ -89,14 +103,14 @@
         }
       }
     },
-    "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
+    "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+        "projectUniqueName": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
         "projectName": "HelloWorldApp.Web",
-        "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+        "projectPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
         "packagesPath": "C:\\Users\\dskri\\.nuget\\packages\\",
-        "outputPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\obj\\",
+        "outputPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dskri\\AppData\\Roaming\\NuGet\\NuGet.Config",

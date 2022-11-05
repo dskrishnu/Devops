@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P4ihH3/4wBuRxNrspRKWcEDz4uoWqGtfhEOewh71gjZ8ZjcrlcxMrz9H3OBZ63Sujv2r2IkVPA6sxa31ATYRJw==",
+  "dgSpecHash": "/7YTyHHvyYHBxYFRta9ki3FLRcJiuC+1FviPXxg3hpPr/ySfdloi1ALupCXO5kEmiEZlKeD9Cxi6ubwXuayf4g==",
   "success": true,
-  "projectFilePath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Test.csproj",
+  "projectFilePath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Tests\\HelloWorldApp.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dskri\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\coverlet.msbuild\\3.2.0\\coverlet.msbuild.3.2.0.nupkg.sha512",

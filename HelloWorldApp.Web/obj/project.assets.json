@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+      "projectUniqueName": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
       "projectName": "HelloWorldApp.Web",
-      "projectPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
+      "projectPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\HelloWorldApp.Web.csproj",
       "packagesPath": "C:\\Users\\dskri\\.nuget\\packages\\",
-      "outputPath": "D:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\obj\\",
+      "outputPath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dskri\\AppData\\Roaming\\NuGet\\NuGet.Config",

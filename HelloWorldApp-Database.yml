@@ -12,20 +12,27 @@ stages:
       vmImage: windows-latest
 
     variables:
-      group: 
-      buildConfiguration: 'Release'
-      ProjectName: '**/*.csproj'
+    - group: SqlServer
+     buildConfiguration: 'Release'
+     ProjectName: '**/*.csproj'
 
     steps:
 
     - template: templates/Build.yml
       parameters:
         buildConfiguration: 'Release'
+
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)'
         artifact: 'drop'
         publishLocation: 'pipeline'
+
+    - task: VSBuild@1
+      displayName: 'Build Azure SQL'
+      inputs:
+        solution: '**\*.sqlproj'
+        msbuildArgs: '/p:OutDir="$(build.artifactStagingDirectory)"'
 
 - stage: "DeployToDev"
   dependsOn: "BuildStage" 
@@ -34,13 +41,17 @@ stages:
   - deployment: 
     environment: Development
     pool:
-      vmImage: ubuntu-latest
+      vmImage: windows-latest
+
+    variables:
+    - group: SqlServer
     strategy:
       runOnce:
         deploy:
           steps:
             - download: current
               artifact: drop
+
             - task: AzureRmWebAppDeployment@4
               inputs:
                 ConnectionType: 'AzureRM'
@@ -48,4 +59,17 @@ stages:
                 appType: 'webApp'
                 WebAppName: 'hwa-dev'
                 packageForLinux: '$(pipeline.workspace)/**/*.zip'
+
+            - task: SqlAzureDacpacDeployment@1
+              displayName: 'Azure SQL : DacpacTask'
+              inputs:
+                AuthenticationType: 'server'
+                ServerName: '$(ServerName)'
+                DatabaseName: '$(DatabaseName)'
+                SqlUsername: '$(SqlUsername)'
+                SqlPassword: '$(SqlPassword)'
+                deployType: 'DacpacTask'
+                DeploymentAction: 'Publish'
+                DacpacFile: '$(System.DefaultWorkingDirectory)\**\*.dacpac'
+                IpDetectionMethod: 'AutoDetect'
 

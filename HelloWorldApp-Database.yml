@@ -13,8 +13,8 @@ stages:
 
     variables:
     - group: SqlServer
-     buildConfiguration: 'Release'
-     ProjectName: '**/*.csproj'
+    #  buildConfiguration: 'Release'
+    #  ProjectName: '**/*.csproj'
 
     steps:
 

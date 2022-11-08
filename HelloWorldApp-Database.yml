@@ -1,19 +1,51 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
-- master
+- none
+##- master
+##- development
 
-pool:
-  vmImage: ubuntu-latest
+stages:
+- stage: "BuildStage"
+  jobs:
+  - job: "BuildJob"
+    pool:
+      vmImage: windows-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+    variables:
+      group: 
+      buildConfiguration: 'Release'
+      ProjectName: '**/*.csproj'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    steps:
+
+    - template: templates/Build.yml
+      parameters:
+        buildConfiguration: 'Release'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'drop'
+        publishLocation: 'pipeline'
+
+- stage: "DeployToDev"
+  dependsOn: "BuildStage" 
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/development')
+  jobs:
+  - deployment: 
+    environment: Development
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                appType: 'webApp'
+                WebAppName: 'hwa-dev'
+                packageForLinux: '$(pipeline.workspace)/**/*.zip'
+

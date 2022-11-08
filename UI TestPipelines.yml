@@ -1,0 +1,87 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- none
+
+stages: 
+- stage: "BuildStage"
+  jobs:
+  - job: "BuildJOb"
+    pool:
+       vmImage: windows-latest
+
+    variables:
+        buildConfiguration: 'Release'
+        ProjectName: '**/*.csproj'
+
+    steps:
+      - task: DotNetCoreCLI@2
+        displayName: Restore
+        inputs:
+          command: 'restore'
+          projects: '$(ProjectName)'
+          feedsToUse: 'select'
+
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: 'build'
+          projects: '$(ProjectName)'
+          arguments: '--configuration $(buildConfiguration)'
+
+      - task: DotNetCoreCLI@2
+        displayName: Publish  
+        inputs:
+          command: 'publish'
+          publishWebProjects: true
+          arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
+      
+      - task: DotNetCoreCLI@2
+        displayName: Publish UI Test Project
+        inputs:
+          command: publish
+          publishWebProjects: false
+          projects: '**/HelloWorldApp.UITests.csproj'
+          arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+          zipAfterPublish: false
+
+      - task: CopyFiles@2
+        displayName: Copy files to output Directory
+        inputs:
+          SourceFolder: 'HelloWorldApp.UITests\bin\$(BuildConfiguration)\net6.0'
+          Contents: '*drive*'
+          TargetFolder: '$(build.artifactstagingdirectory)/HelloWorldApp.UITests'
+      - task: PublishBuildArtifacts@1
+        displayName: Publish Artifact
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
+
+- stage: "DeployToAppService"
+  dependsOn: "BuildStage"
+  jobs:
+  - job: "DeployJOb"
+    pool:
+       vmImage: windows-latest
+
+    steps:
+      - download: current
+        artifact: drop
+      - task: AzureRmWebAppDeployment@4
+        displayName: DeployToAppService
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'HelloWorldApp-ServiceConnection'
+          appType: 'webApp'
+          WebAppName: 'HelloWorldApp-Test'
+          packageForLinux: '$(pipeline.workspace)/**/*.zip'
+      
+      - task: DotNetCoreCLI@2
+        displayName: UI Test 
+        inputs:
+          command: 'test'
+          arguments: '$(pipeline.workspace)\**\drop\**\HelloWorldApp.UITests.dll'

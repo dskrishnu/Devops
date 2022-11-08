@@ -13,6 +13,7 @@ steps:
     terraformVersion: 'latest'
  
 - task: TerraformTaskV3@3
+  displayName: Terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -24,6 +25,7 @@ steps:
     backendAzureRmKey: 'tf/terraform.tfstate'
 
 - task: TerraformTaskV3@3
+  displayName: Terraform apply
   inputs:
     provider: 'azurerm'
     command: 'apply'

@@ -61,6 +61,6 @@ stages:
                 SqlPassword: '$(SqlPassword)'
                 deployType: 'DacpacTask'
                 DeploymentAction: 'Publish'
-                DacpacFile: '$(System.DefaultWorkingDirectory)\**\*.dacpac'
+                DacpacFile: '$(Pipeline.WorkSpace)\**\*.dacpac'
                 IpDetectionMethod: 'AutoDetect'
 

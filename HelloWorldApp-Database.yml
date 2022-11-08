@@ -49,13 +49,6 @@ stages:
             - download: current
               artifact: drop
 
-            - task: AzureRmWebAppDeployment@4
-              inputs:
-                ConnectionType: 'AzureRM'
-                azureSubscription: 'HelloWorldApp-ServiceConnection'
-                appType: 'webApp'
-                WebAppName: 'hwa-dev'
-                packageForLinux: '$(pipeline.workspace)/**/*.zip'
 
             - task: SqlAzureDacpacDeployment@1
               displayName: 'Azure SQL : DacpacTask'

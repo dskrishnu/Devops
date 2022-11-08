@@ -42,6 +42,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
     backendServiceArm: 'HelloWorldApp-ServiceConnection'
     backendAzureRmResourceGroupName: 'dskrishnu-rg'
     backendAzureRmStorageAccountName: 'mydevops'
@@ -61,7 +62,6 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
+    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
     commandOptions: '-auto-approve tfplan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/_HelloWorldApp-Classic/drop'
-    backendServiceArm: 'Azure Connection'
     environmentServiceNameAzureRM: 'Azure Connection'

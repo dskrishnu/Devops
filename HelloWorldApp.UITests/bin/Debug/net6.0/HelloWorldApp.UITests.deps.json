@@ -17,7 +17,7 @@
           "Selenium.Support": "4.6.0",
           "Selenium.WebDriver": "4.6.0",
           "Selenium.WebDriver.ChromeDriver": "107.0.5304.6200",
-          "Selenium.WebDriver.MSEdgeDriver": "107.0.1402.2-pre",
+          "Selenium.WebDriver.MSEdgeDriver": "106.0.1370.34",
           "coverlet.collector": "3.1.2"
         },
         "runtime": {
@@ -344,7 +344,7 @@
         }
       },
       "Selenium.WebDriver.ChromeDriver/107.0.5304.6200": {},
-      "Selenium.WebDriver.MSEdgeDriver/107.0.1402.2-pre": {},
+      "Selenium.WebDriver.MSEdgeDriver/106.0.1370.34": {},
       "System.Reflection.Metadata/1.6.0": {},
       "HelloWorldApp.Web/1.0.0": {
         "runtime": {
@@ -464,12 +464,12 @@
       "path": "selenium.webdriver.chromedriver/107.0.5304.6200",
       "hashPath": "selenium.webdriver.chromedriver.107.0.5304.6200.nupkg.sha512"
     },
-    "Selenium.WebDriver.MSEdgeDriver/107.0.1402.2-pre": {
+    "Selenium.WebDriver.MSEdgeDriver/106.0.1370.34": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8kN0tu3f9JoUsnb6zHcxU2zcyEVgMmsgAHquTYYiDoOcNchj0nY0TKpgbXbcz0tCmja6xRpwRtReXCQCWTxdng==",
-      "path": "selenium.webdriver.msedgedriver/107.0.1402.2-pre",
-      "hashPath": "selenium.webdriver.msedgedriver.107.0.1402.2-pre.nupkg.sha512"
+      "sha512": "sha512-rK8ZS8ftYmo3EBhs79l59pps6OcTuQzcXp6Kt132HZFH8qyeI3EGGM+ELtaDpJdjKVL7jEa0ORIXhJn+mnB9LA==",
+      "path": "selenium.webdriver.msedgedriver/106.0.1370.34",
+      "hashPath": "selenium.webdriver.msedgedriver.106.0.1370.34.nupkg.sha512"
     },
     "System.Reflection.Metadata/1.6.0": {
       "type": "package",

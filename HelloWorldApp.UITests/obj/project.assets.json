@@ -402,7 +402,7 @@
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.MSEdgeDriver/107.0.1402.2-pre": {
+      "Selenium.WebDriver.MSEdgeDriver/106.0.1370.34": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.MSEdgeDriver.targets": {}
@@ -1374,10 +1374,10 @@
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.MSEdgeDriver/107.0.1402.2-pre": {
-      "sha512": "8kN0tu3f9JoUsnb6zHcxU2zcyEVgMmsgAHquTYYiDoOcNchj0nY0TKpgbXbcz0tCmja6xRpwRtReXCQCWTxdng==",
+    "Selenium.WebDriver.MSEdgeDriver/106.0.1370.34": {
+      "sha512": "rK8ZS8ftYmo3EBhs79l59pps6OcTuQzcXp6Kt132HZFH8qyeI3EGGM+ELtaDpJdjKVL7jEa0ORIXhJn+mnB9LA==",
       "type": "package",
-      "path": "selenium.webdriver.msedgedriver/107.0.1402.2-pre",
+      "path": "selenium.webdriver.msedgedriver/106.0.1370.34",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1388,7 +1388,7 @@
         "driver/win32/msedgedriver.exe",
         "driver/win64/msedgedriver.exe",
         "license/license.txt",
-        "selenium.webdriver.msedgedriver.107.0.1402.2-pre.nupkg.sha512",
+        "selenium.webdriver.msedgedriver.106.0.1370.34.nupkg.sha512",
         "selenium.webdriver.msedgedriver.nuspec"
       ]
     },
@@ -1430,7 +1430,7 @@
       "Selenium.Support >= 4.6.0",
       "Selenium.WebDriver >= 4.6.0",
       "Selenium.WebDriver.ChromeDriver >= 107.0.5304.6200",
-      "Selenium.WebDriver.MSEdgeDriver >= 107.0.1402.2-pre",
+      "Selenium.WebDriver.MSEdgeDriver >= 106.0.1370.34",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -1511,7 +1511,7 @@
           },
           "Selenium.WebDriver.MSEdgeDriver": {
             "target": "Package",
-            "version": "[107.0.1402.2-pre, )"
+            "version": "[106.0.1370.34, )"
           },
           "coverlet.collector": {
             "target": "Package",

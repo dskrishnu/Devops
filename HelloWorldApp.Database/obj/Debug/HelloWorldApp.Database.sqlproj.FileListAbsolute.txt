@@ -1,0 +1,10 @@
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\bin\Debug\HelloWorldApp.Database.dacpac
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\bin\Debug\HelloWorldApp.Database.dll
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\bin\Debug\HelloWorldApp.Database.pdb
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\HelloWorldApp.Database.sqlproj.AssemblyReference.cache
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\Model.xml
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\refactor.xml
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\postdeploy.sql
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\predeploy.sql
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\HelloWorldApp.Database.dll
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Database\obj\Debug\HelloWorldApp.Database.pdb

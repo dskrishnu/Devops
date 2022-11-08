@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "H7QNEMvLc/ze6R74T+EmDFXwmKYS8vWsKY72/WOPV45qU049ZK/DdUzQlNDcbTO4ji5xI39Es7r1qlUBQBP+/A==",
+  "dgSpecHash": "NLTxjmzpeS/lvqFokMGfaoY9Y2x/eOJKz7iByBBhxTXW/kPX+0/9CG1BMUji5Jq3wNlQaPGlWUMaRFIL3s+aFQ==",
   "success": true,
   "projectFilePath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.UITests\\HelloWorldApp.UITests.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,7 @@
     "C:\\Users\\dskri\\.nuget\\packages\\selenium.support\\4.6.0\\selenium.support.4.6.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\selenium.webdriver\\4.6.0\\selenium.webdriver.4.6.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\selenium.webdriver.chromedriver\\107.0.5304.6200\\selenium.webdriver.chromedriver.107.0.5304.6200.nupkg.sha512",
-    "C:\\Users\\dskri\\.nuget\\packages\\selenium.webdriver.msedgedriver\\107.0.1402.2-pre\\selenium.webdriver.msedgedriver.107.0.1402.2-pre.nupkg.sha512",
+    "C:\\Users\\dskri\\.nuget\\packages\\selenium.webdriver.msedgedriver\\106.0.1370.34\\selenium.webdriver.msedgedriver.106.0.1370.34.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []

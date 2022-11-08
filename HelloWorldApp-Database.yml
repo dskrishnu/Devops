@@ -1,0 +1,66 @@
+
+trigger:
+- none
+##- master
+##- development
+
+stages:
+- stage: "BuildStage"
+  jobs:
+  - job: "BuildJob"
+    pool:
+      vmImage: windows-latest
+
+    variables:
+    - group: SqlServer
+    #  buildConfiguration: 'Release'
+    #  ProjectName: '**/*.csproj'
+
+    steps:
+
+    - task: VSBuild@1
+      displayName: 'Build Azure SQL'
+      inputs:
+        solution: '**\*.sqlproj'
+        msbuildArgs: '/p:OutDir="$(build.artifactStagingDirectory)"'
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'drop'
+        publishLocation: 'pipeline'
+
+
+- stage: "DeployToDev"
+  dependsOn: "BuildStage" 
+
+  jobs:
+  - deployment: 
+    environment: Development
+    pool:
+      vmImage: windows-latest
+
+    variables:
+    - group: SqlServer
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - download: current
+              artifact: drop
+
+
+            - task: SqlAzureDacpacDeployment@1
+              displayName: 'Azure SQL : DacpacTask'
+              inputs:
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
+                AuthenticationType: 'server'
+                ServerName: '$(ServerName)'
+                DatabaseName: '$(DatabaseName)'
+                SqlUsername: '$(SqlUsername)'
+                SqlPassword: '$(SqlPassword)'
+                deployType: 'DacpacTask'
+                DeploymentAction: 'Publish'
+                DacpacFile: '$(Pipeline.WorkSpace)\**\*.dacpac'
+                IpDetectionMethod: 'AutoDetect'
+

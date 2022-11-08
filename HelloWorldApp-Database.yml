@@ -53,6 +53,7 @@ stages:
             - task: SqlAzureDacpacDeployment@1
               displayName: 'Azure SQL : DacpacTask'
               inputs:
+                azureSubscription: 'HelloWorldApp-ServiceConnection'
                 AuthenticationType: 'server'
                 ServerName: '$(ServerName)'
                 DatabaseName: '$(DatabaseName)'

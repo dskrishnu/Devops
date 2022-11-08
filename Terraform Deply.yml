@@ -5,29 +5,63 @@ trigger:
 pool:
   vmImage: windows-latest
 
-steps:
+# steps:
 
-- task: TerraformInstaller@0
-  displayName: Installing Terraform  
-  inputs:
-    terraformVersion: 'latest'
+# - task: TerraformInstaller@0
+#   displayName: Installing Terraform  
+#   inputs:
+#     terraformVersion: 'latest'
  
-- task: TerraformTaskV3@3
-  displayName: Terraform init
+# - task: TerraformTaskV3@3
+#   displayName: Terraform init
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'init'
+#     workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
+#     backendServiceArm: 'HelloWorldApp-ServiceConnection'
+#     backendAzureRmResourceGroupName: 'dskrishnu-rg'
+#     backendAzureRmStorageAccountName: 'mydevops'
+#     backendAzureRmContainerName: 'terraform'
+#     backendAzureRmKey: 'tf/terraform.tfstate'
+
+# - task: TerraformTaskV3@3
+#   displayName: Terraform apply
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'apply'
+#     workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
+#     environmentServiceNameAzureRM: 'HelloWorldApp-ServiceConnection'
+
+steps:
+- task: TerraformInstaller@0
+  displayName: 'Install Terraform 0.12.3'
+  inputs:
+   terraformVersion: '1.0.3'
+- task: TerraformTaskV1@0
+  displayName: 'Terraform Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
     backendServiceArm: 'HelloWorldApp-ServiceConnection'
     backendAzureRmResourceGroupName: 'dskrishnu-rg'
     backendAzureRmStorageAccountName: 'mydevops'
     backendAzureRmContainerName: 'terraform'
-    backendAzureRmKey: 'tf/terraform.tfstate'
-
-- task: TerraformTaskV3@3
-  displayName: Terraform apply
+    backendAzureRmKey: 'terraform.tfstate'
+    
+# - task: TerraformTaskV1@0
+#   displayName: 'Terraform Plan'
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'plan'
+#     commandOptions: '-out=tfplan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/_HelloWorldApp-Classic/drop'
+#     environmentServiceNameAzureRM: 'Azure Connection'
+- task: TerraformTaskV1@0
+  displayName: 'Terraform Apply'
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
-    environmentServiceNameAzureRM: 'HelloWorldApp-ServiceConnection'
+    commandOptions: '-auto-approve tfplan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/_HelloWorldApp-Classic/drop'
+    backendServiceArm: 'Azure Connection'
+    environmentServiceNameAzureRM: 'Azure Connection'

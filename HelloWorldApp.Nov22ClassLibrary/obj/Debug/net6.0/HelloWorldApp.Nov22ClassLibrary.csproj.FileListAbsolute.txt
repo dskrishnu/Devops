@@ -1,0 +1,12 @@
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\bin\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.deps.json
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\bin\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.dll
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\bin\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.pdb
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.csproj.AssemblyReference.cache
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.AssemblyInfoInputs.cache
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.AssemblyInfo.cs
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.csproj.CoreCompileInputs.cache
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.dll
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\refint\HelloWorldApp.Nov22ClassLibrary.dll
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\HelloWorldApp.Nov22ClassLibrary.pdb
+E:\Tutorials\Devops\HelloWorldApp\HelloWorldApp.Nov22ClassLibrary\obj\Debug\net6.0\ref\HelloWorldApp.Nov22ClassLibrary.dll

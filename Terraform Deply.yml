@@ -1,0 +1,31 @@
+
+trigger:
+- none
+
+pool:
+  vmImage: windows-latest
+
+steps:
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+  displayName: 'Install Terraform latest'
+ 
+- task: TerraformTaskV3@3
+  displayName: Terraform init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
+    backendServiceArm: 'HelloWorldApp-ServiceConnection'
+    backendAzureRmResourceGroupName: 'dskrishnu-rg'
+    backendAzureRmStorageAccountName: 'mydevops'
+    backendAzureRmContainerName: 'terraform'
+    backendAzureRmKey: 'tf/terraform.tfstate'
+
+- task: TerraformTaskV3@3
+  displayName: Terraform apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'HelloWorldApp.Web/Terraform-templates'
+    environmentServiceNameAzureRM: 'HelloWorldApp-ServiceConnection'

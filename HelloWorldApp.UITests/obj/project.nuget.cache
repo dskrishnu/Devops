@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NLTxjmzpeS/lvqFokMGfaoY9Y2x/eOJKz7iByBBhxTXW/kPX+0/9CG1BMUji5Jq3wNlQaPGlWUMaRFIL3s+aFQ==",
+  "dgSpecHash": "3ldDn5bSMzLs8s/kmpn6F6AJaleTXWGBcYV6NMhXFop8QbjTlrkE5aabN0mHqET/7EJXy41mlD6txt6o2TQS+A==",
   "success": true,
   "projectFilePath": "E:\\Tutorials\\Devops\\HelloWorldApp\\HelloWorldApp.UITests\\HelloWorldApp.UITests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\dskri\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.1.0\\microsoft.testplatform.objectmodel.17.1.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\microsoft.testplatform.testhost\\17.1.0\\microsoft.testplatform.testhost.17.1.0.nupkg.sha512",
+    "C:\\Users\\dskri\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\dskri\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",

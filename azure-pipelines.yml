@@ -24,8 +24,13 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'Docker Service Connection'
-        repository: 'helloworldapp'
+        repository: 'dskrishnu/helloworldapp'
         command: 'build'
         Dockerfile: '**/Dockerfile'
         buildContext: '.'
         tags: '$(tag)'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Docker Service Connection'
+        repository: 'dskrishnu/helloworldapp'
+        command: 'push'

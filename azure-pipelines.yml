@@ -55,4 +55,12 @@ stages:
         action: 'Push an image'
         imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
         qualifyImageName: false
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'HelloWorldApp-ServiceConnection'
+        appType: 'webAppContainer'
+        WebAppName: 'mydevopsweb'
+        DockerNamespace: 'mydevops.azurecr.io'
+        DockerRepository: 'helloworldapp'
     

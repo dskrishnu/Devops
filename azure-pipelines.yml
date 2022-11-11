@@ -47,6 +47,7 @@ stages:
         qualifyImageName: false
         useDefaultContext: false
         buildContext: .
+
     - task: Docker@0
       displayName: 'Push an image to ACR'
       inputs:
@@ -55,6 +56,15 @@ stages:
         action: 'Push an image'
         imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
         qualifyImageName: false
+
+- stage: Deploy
+  displayName: Deploy image
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: ubuntu-latest
+    steps:      
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'

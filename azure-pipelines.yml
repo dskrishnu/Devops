@@ -47,4 +47,12 @@ stages:
         qualifyImageName: false
         useDefaultContext: false
         buildContext: .
-        
+    - task: Docker@0
+      displayName: 'Push an image to ACR'
+      inputs:
+        azureSubscription: 'HelloWorldApp-ServiceConnection'
+        azureContainerRegistry: '{"loginServer":"$(ContainerRegistry)", "id" : "/subscriptions/d729bcc7-cd75-400b-a50a-6d57c02fd762/resourceGroups/dskrishnu-rg/providers/Microsoft.ContainerRegistry/registries/mydevops"}'
+        action: 'Push an image'
+        imageName: '$(ContainerRegistry)/$(RepositoryName):$(Build.BuildId)'
+        qualifyImageName: false
+    

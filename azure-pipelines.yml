@@ -42,8 +42,8 @@ stages:
       displayName: 'Build image'
       inputs:
         azureSubscriptionEndpoint: 'HelloWorldApp-ServiceConnection'
-        azureContainerRegistry: $(ContainerRegistry)
-        imageName: '$(ContainerRegistry)/$(RepositoryName):$(Build.BuildId)'
+        azureContainerRegistry: mydevops.azurecr.io
+        imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
         qualifyImageName: false
         useDefaultContext: false
         buildContext: .
@@ -51,8 +51,8 @@ stages:
       displayName: 'Push an image to ACR'
       inputs:
         azureSubscription: 'HelloWorldApp-ServiceConnection'
-        azureContainerRegistry: '{"loginServer":"$(ContainerRegistry)", "id" : "/subscriptions/d729bcc7-cd75-400b-a50a-6d57c02fd762/resourceGroups/dskrishnu-rg/providers/Microsoft.ContainerRegistry/registries/mydevops"}'
+        azureContainerRegistry: '{"loginServer":"mydevops.azurecr.io", "id" : "/subscriptions/d729bcc7-cd75-400b-a50a-6d57c02fd762/resourceGroups/dskrishnu-rg/providers/Microsoft.ContainerRegistry/registries/mydevops"}'
         action: 'Push an image'
-        imageName: '$(ContainerRegistry)/$(RepositoryName):$(Build.BuildId)'
+        imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
         qualifyImageName: false
     

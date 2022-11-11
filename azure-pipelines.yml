@@ -10,6 +10,8 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  ContainerRegistry: '$(mydevops.azurecr.io)'
+  RepositoryName: '$(helloworldapp)'
 
 stages:
 - stage: Build
@@ -36,4 +38,13 @@ stages:
     #     repository: 'dskrishnu/helloworldapp'
     #     command: 'push'
 
-    
+    - task: Docker@1
+      displayName: 'Build image'
+      inputs:
+        azureSubscriptionEndpoint: 'HelloWorldApp-ServiceConnection'
+        azureContainerRegistry: $(ContainerRegistry)
+        imageName: '$(ContainerRegistry)/$(RepositoryName):$(Build.BuildId)'
+        qualifyImageName: false
+        useDefaultContext: false
+        buildContext: .
+        

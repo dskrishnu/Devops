@@ -74,5 +74,5 @@ stages:
        DockerNamespace: 'mydevops.azurecr.io'
        DockerRepository: 'helloworldapp'
        DockerImageTag: '$(Build.BuildId)'
-       AppSettings: |
-        '-DOCKER_REGISTRY_SERVER_URL mydevops.azurecr.io -DOCKER_REGISTRY_SERVER_USERNAME mydevops -DOCKER_REGISTRY_SERVER_PASSWORD AWe59ssw/E0GKfhbIAFZ3JKGWTcooPZi'
+      # AppSettings: |
+      #  '-DOCKER_REGISTRY_SERVER_URL mydevops.azurecr.io -DOCKER_REGISTRY_SERVER_USERNAME mydevops -DOCKER_REGISTRY_SERVER_PASSWORD AWe59ssw/E0GKfhbIAFZ3JKGWTcooPZi'

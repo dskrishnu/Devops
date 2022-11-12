@@ -1,0 +1,78 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- none
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+  ContainerRegistry: '$(mydevops.azurecr.io)'
+  RepositoryName: '$(helloworldapp)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    # - task: Docker@2
+    #   displayName: Build an image
+    #   inputs:
+    #     containerRegistry: 'Docker Service Connection'
+    #     repository: 'dskrishnu/helloworldapp'
+    #     command: 'build'
+    #     Dockerfile: '**/Dockerfile'
+    #     buildContext: '.'
+    #     tags: '$(tag)'
+    # - task: Docker@2
+    #   displayName: Push an image
+    #   inputs:
+    #     containerRegistry: 'Docker Service Connection'
+    #     repository: 'dskrishnu/helloworldapp'
+    #     command: 'push'
+
+    - task: Docker@1
+      displayName: 'Build image'
+      inputs:
+        azureSubscriptionEndpoint: 'HelloWorldApp-ServiceConnection'
+        azureContainerRegistry: mydevops.azurecr.io
+        imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
+        qualifyImageName: false
+        useDefaultContext: false
+        buildContext: .
+
+    - task: Docker@0
+      displayName: 'Push an image to ACR'
+      inputs:
+        azureSubscription: 'HelloWorldApp-ServiceConnection'
+        azureContainerRegistry: '{"loginServer":"mydevops.azurecr.io", "id" : "/subscriptions/d729bcc7-cd75-400b-a50a-6d57c02fd762/resourceGroups/dskrishnu-rg/providers/Microsoft.ContainerRegistry/registries/mydevops"}'
+        action: 'Push an image'
+        imageName: 'mydevops.azurecr.io/helloworldapp:$(Build.BuildId)'
+        qualifyImageName: false
+
+- stage: Deploy
+  displayName: Deploy image
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: ubuntu-latest
+    steps:      
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+       ConnectionType: 'AzureRM'
+       azureSubscription: 'HelloWorldApp-ServiceConnection'
+       appType: 'webAppContainer'
+       WebAppName: 'mydevopsweb'
+       DockerNamespace: 'mydevops.azurecr.io'
+       DockerRepository: 'helloworldapp'
+       DockerImageTag: '$(Build.BuildId)'
+      # AppSettings: |
+      #  '-DOCKER_REGISTRY_SERVER_URL mydevops.azurecr.io -DOCKER_REGISTRY_SERVER_USERNAME mydevops -DOCKER_REGISTRY_SERVER_PASSWORD AWe59ssw/E0GKfhbIAFZ3JKGWTcooPZi'

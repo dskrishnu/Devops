@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworldapp
+  labels:
+    app: helloworldapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworldapp
+  template:
+    metadata:
+      labels:
+        app: helloworldapp
+    spec:
+      containers:
+        - name: helloworldapp
+          image: mydevops.azurecr.io/helloworldapp:linux3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+  imagePullSecrets:
+    - name: kubernetes-principle-secret
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworldapp
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: helloworldapp
